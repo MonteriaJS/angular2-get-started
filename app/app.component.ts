@@ -15,7 +15,8 @@ export class Person {
 	template 	: 	`<h1>
 						{{ title }}
 					</h1>
-					<h2> {{ person.id }}  {{ person.name }} </h2>`
+					<h2> {{ person.id }}  {{ person.name }} </h2>
+					<input [(ngModel)]="person.name" placeholder="name">`
 })
 
 export class AppComponent{ 
