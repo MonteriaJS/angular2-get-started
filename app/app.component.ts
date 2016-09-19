@@ -24,8 +24,20 @@ const personsArray : Person[] = [
 						{{ title }}
 					</h1>
 					<ul *ngFor=" let person of persons ">
-						<li> <a href="#" (click)="onSelect(person)"> {{person.id}} {{person.name}} </a> </li>
-					</ul>`,
+						<li> 
+							<a href="#" (click)="onSelect(person)"> {{person.id}} {{person.name}} </a> 
+						</li>
+					</ul>
+					<div *ngIf="selectedPerson">
+						<h2> {{ selectedPerson.name }} Details </h2>
+						<div>
+							<label> id: {{ selectedPerson.id }} </label> 
+						</div>
+						<div>
+							<label> name: </label>
+							<input [(ngModel)]="selectedPerson.name" placeholder="name">
+						</div>
+					</div>`,
 	styles 		: [`
 					ul{
 						list-style: none;
@@ -35,8 +47,6 @@ const personsArray : Person[] = [
 					}
 				`]
 })
-					// <h2> {{ person.id }}  {{ person.name }} </h2>
-					// <input [(ngModel)]="person.name" placeholder="name">
 
 export class AppComponent{ 
 	title			= 'lista de personas';
@@ -45,6 +55,5 @@ export class AppComponent{
 
 	onSelect( person : Person ): void {
 		this.selectedPerson = person;
-		alert(this.selectedPerson.name);
 	}
 }
