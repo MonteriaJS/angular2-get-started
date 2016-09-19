@@ -24,14 +24,27 @@ const personsArray : Person[] = [
 						{{ title }}
 					</h1>
 					<ul *ngFor=" let person of persons ">
-						<li > {{person.id}} {{person.name}} </li>
-					</ul>
-					<h2> {{ person.id }}  {{ person.name }} </h2>
-					<input [(ngModel)]="person.name" placeholder="name">`
+						<li> <a href="#" (click)="onSelect(person)"> {{person.id}} {{person.name}} </a> </li>
+					</ul>`,
+	styles 		: [`
+					ul{
+						list-style: none;
+					}
+					ul li a {
+						text-decoration : none;
+					}
+				`]
 })
+					// <h2> {{ person.id }}  {{ person.name }} </h2>
+					// <input [(ngModel)]="person.name" placeholder="name">
 
 export class AppComponent{ 
-	title	= 'lista de personas';
-	person  = new Person(1, 'Dennis ritchie');
-	persons = personsArray;
+	title			= 'lista de personas';
+	selectedPerson 	: Person;	
+	persons 		= personsArray;
+
+	onSelect( person : Person ): void {
+		this.selectedPerson = person;
+		alert(this.selectedPerson.name);
+	}
 }
