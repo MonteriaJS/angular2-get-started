@@ -25,7 +25,7 @@ const personsArray : Person[] = [
 					</h1>
 					<ul *ngFor=" let person of persons ">
 						<li> 
-							<a href="#" (click)="onSelect(person)"> {{person.id}} {{person.name}} </a> 
+							<a [class.selected] = " person === selectedPerson " href="#" (click)="onSelect(person)"> {{person.id}} {{person.name}} </a> 
 						</li>
 					</ul>
 					<div *ngIf="selectedPerson">
@@ -44,6 +44,11 @@ const personsArray : Person[] = [
 					}
 					ul li a {
 						text-decoration : none;
+					}
+
+					.selected {
+						background-color : gray;
+						color : white;
 					}
 				`]
 })
