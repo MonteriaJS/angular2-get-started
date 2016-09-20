@@ -6,13 +6,5 @@
 		[class.selected] = " person === selectedPerson " href="#" (click)="onSelect(person)"> {{person.name}} </a> 
 	</li>
 </ul>
-<div *ngIf="selectedPerson">
-	<h2> {{ selectedPerson.name }} Details </h2>
-	<div>
-		<label> id: {{ selectedPerson.id }} </label> 
-	</div>
-	<div>
-		<label> name: </label>
-		<input [(ngModel)]="selectedPerson.name" placeholder="name">
-	</div>
-</div>
+
+<person-detail [person]="selectedPerson"></person-detail>	

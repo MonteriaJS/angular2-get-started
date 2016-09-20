@@ -1,14 +1,5 @@
-import  { Component } from '@angular/core';
-
-export class Person {
-	id 		: number;
-	name 	: string;
-
-	constructor(idParam: number, nameParam: string){
-		this.id 		= idParam;
-		this.name 		= nameParam;
-	}
-}
+import  { Component } 	from '@angular/core';
+import 	{ Person } 		from './person'
 
 const personsArray : Person[] = [
 	{ id: 1, name: 'Dennis ritchie' },
