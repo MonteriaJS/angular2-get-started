@@ -20,37 +20,8 @@ const personsArray : Person[] = [
 
 @Component({
 	selector	: 'my-app',
-	template 	: 	`<h1>
-						{{ title }}
-					</h1>
-					<ul *ngFor=" let person of persons ">
-						<li> 
-							<a [class.selected] = " person === selectedPerson " href="#" (click)="onSelect(person)"> {{person.id}} {{person.name}} </a> 
-						</li>
-					</ul>
-					<div *ngIf="selectedPerson">
-						<h2> {{ selectedPerson.name }} Details </h2>
-						<div>
-							<label> id: {{ selectedPerson.id }} </label> 
-						</div>
-						<div>
-							<label> name: </label>
-							<input [(ngModel)]="selectedPerson.name" placeholder="name">
-						</div>
-					</div>`,
-	styles 		: [`
-					ul{
-						list-style: none;
-					}
-					ul li a {
-						text-decoration : none;
-					}
-
-					.selected {
-						background-color : gray;
-						color : white;
-					}
-				`]
+	templateUrl	: 'app/templates/my-app.html',
+	styleUrls 	: ['app/styles/my-app.css']
 })
 
 export class AppComponent{ 

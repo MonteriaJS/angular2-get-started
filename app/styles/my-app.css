@@ -1,0 +1,18 @@
+ul{
+	list-style: none;
+}
+.unselected {
+	text-decoration : none;
+	color: gray;
+}
+
+ul li span {
+	color: teal;
+	font-weight: bold;
+}
+
+.selected {
+	text-decoration : none;
+	color: teal;
+	border-bottom: 1px solid teal;
+}
