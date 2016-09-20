@@ -1,26 +1,37 @@
-import  { Component } 	from '@angular/core';
-import 	{ Person } 		from './person'
-
-const personsArray : Person[] = [
-	{ id: 1, name: 'Dennis ritchie' },
-	{ id: 2, name: 'Linus Torvalds' },
-	{ id: 3, name: 'Richard Stallman' },
-	{ id: 4, name: 'Steve Jobs' },
-	{ id: 5, name: 'Bill Gates' }
-];
+import  { Component } 		from '@angular/core';
+import 	{ Person } 			from './person'
+import 	{ PersonService } 	from './person.service';
+import 	{ OnInit } 			from '@angular/core';
 
 @Component({
 	selector	: 'my-app',
 	templateUrl	: 'app/templates/my-app.html',
-	styleUrls 	: ['app/styles/my-app.css']
+	styleUrls 	: ['app/styles/my-app.css'],
+	providers	: [ PersonService ]
 })
 
-export class AppComponent{ 
+export class AppComponent implements OnInit{ 
 	title			= 'lista de personas';
 	selectedPerson 	: Person;	
-	persons 		= personsArray;
+	persons 		: Person[];
+
+	constructor( private personService : PersonService ){}
 
 	onSelect( person : Person ): void {
 		this.selectedPerson = person;
+	}
+
+	getPerson(): void {
+		this.personService.getPerson()
+			.then( persons => {
+				this.persons = persons
+			} )
+			.catch ( err => {
+				console.log(err)
+			} )
+	}
+
+	ngOnInit(): void {
+		this.getPerson();
 	}
 }
