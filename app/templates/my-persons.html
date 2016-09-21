@@ -4,7 +4,9 @@
 		<li> 
 			<span> {{ person.id }} </span><a 
 			[class.unselected] = " person !== selectedPerson "
-			[class.selected] = " person === selectedPerson " (click)="onSelect(person)"> {{person.name}} </a> 
+			[class.selected] = " person === selectedPerson "
+			routerLink="/persons/{{ person.id }}"
+			 (click)="onSelect(person)"> {{person.name}} </a> 
 		</li>
 	</ul>
 </div>

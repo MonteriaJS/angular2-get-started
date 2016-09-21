@@ -2,6 +2,7 @@ import  { Component } 		from '@angular/core';
 import 	{ Person } 			from './person'
 import 	{ PersonService } 	from './person.service';
 import 	{ OnInit } 			from '@angular/core';
+import 	{ Router } 			from '@angular/router';
 
 @Component({
 	selector	: 'my-persons',
@@ -15,14 +16,14 @@ export class PersonsComponent implements OnInit{
 	selectedPerson 	: Person;	
 	persons 		: Person[];
 
-	constructor( private personService : PersonService ){}
+	constructor( private personService : PersonService, private router: Router ){}
 
 	onSelect( person : Person ): void {
 		this.selectedPerson = person;
 	}
 
 	getPerson(): void {
-		this.personService.getPerson()
+		this.personService.getPersons()
 			.then( persons => {
 				this.persons = persons
 			} )
@@ -33,5 +34,10 @@ export class PersonsComponent implements OnInit{
 
 	ngOnInit(): void {
 		this.getPerson();
+	}
+
+	gotoDetail(person: Person): void {
+		let link = ['/persons', person.id];
+		this.router.navigate(link);
 	}
 }
