@@ -1,0 +1,12 @@
+<div class="container">
+	<h1> {{ title }} </h1>
+	<ul *ngFor=" let person of persons ">
+		<li> 
+			<span> {{ person.id }} </span><a 
+			[class.unselected] = " person !== selectedPerson "
+			[class.selected] = " person === selectedPerson " (click)="onSelect(person)"> {{person.name}} </a> 
+		</li>
+	</ul>
+</div>
+
+<person-detail [person]="selectedPerson"></person-detail>	

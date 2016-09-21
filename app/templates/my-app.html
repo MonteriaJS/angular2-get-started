@@ -1,10 +1,10 @@
-<h1> {{ title }} </h1>
-<ul *ngFor=" let person of persons ">
-	<li> 
-		<span> {{ person.id }} </span><a 
-		[class.unselected] = " person !== selectedPerson "
-		[class.selected] = " person === selectedPerson " href="#" (click)="onSelect(person)"> {{person.name}} </a> 
-	</li>
-</ul>
-
-<person-detail [person]="selectedPerson"></person-detail>	
+	<nav class="teal">
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo">Logo</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a routerLink="/">home</a></li>
+				<li><a routerLink="/persons">Persons</a></li>
+			</ul>
+		</div>
+	</nav>
+	<router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import  { Person } from './person.ts';
+import  { Person } from './person';
 
 export const personsArray : Person[] = [
 	{ id: 1, name: 'Dennis ritchie' },
